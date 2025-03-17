@@ -1,0 +1,521 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes up full viewport height */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #f0f0f0; /* Your brand color */
+    padding: 10px 0;
+    position: fixed; /* Make it stick to the top */
+    top: 0;
+    width: 100%;
+    z-index: 10; /* Ensure it's above other content */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    max-height: 80px; /* Adjust this value as needed */
+    max-width: auto; /* Adjust this value as needed */
+}
+
+.logo img {
+    width: auto;
+    height: 80px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333; /* Your brand color */
+    font-weight: bold;
+    font-size: 1.3em;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.nav-links a:hover {
+    color: #d35814; /* Your brand color */
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none; /* Hide on larger screens */
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333; /* Your brand color */
+    margin: 5px 0;
+    transition: transform 0.3s ease;
+}
+
+/* Hamburger Menu Animation */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+/* Navigation Bar Animation */
+.navbar {
+    animation: slideDown 0.5s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.nav-links li:hover .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    padding: 10px 20px;
+}
+
+.dropdown li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown li a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Dropdown Menu Animation */
+.dropdown {
+    animation: slideDown 0.3s ease-in-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Hero Section Styles */
+.hero {
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    text-align: center;
+    padding-top: 120px; /* Add padding to account for the navbar height */
+}
+
+.hero .container {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* To position the image */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space between image and content */
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+
+.hero p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.cta {
+    background-color: #e68014;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove underline */
+}
+
+.cta:hover {
+    background-color: #d35814;
+}
+
+.hero-image {
+    max-width: 40%; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.hero-content {
+    max-width: 50%; /* Adjust as needed */
+    text-align: left; /* Align text to the left */
+}
+
+.hero-content p {
+    margin-bottom: 50px; /* Adjust this value as needed */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #f7f1f1; /* Your brand color */
+    padding: 20px 0;
+    color: #d35814;
+    text-align: center;
+    position: relative; /* For the animation */
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #ccc; /* Add top border */
+}
+
+.footer-content {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.social-links {
+    display: inline-block;
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #e68014; /* Your brand color */
+}
+
+/* Footer Animation */
+footer {
+    animation: slideUp 0.5s ease-in-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+main {
+    flex-grow: 1; /* Allow the main content to grow and push the footer to the bottom */
+}
+
+/* Chat Container Styles */
+.chat-container {
+    width: 75%; /* Occupy 50% of the screen width */
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 120px auto; /* Add top margin to account for navbar height */
+    margin-top: 120px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.chat-container h1 {
+    color: #d35814;
+}
+
+.chat-header {
+    padding: 5px;
+    background-color: #e9f0ea;
+    color: #d35814;
+    text-align: center;
+}
+
+
+
+.upload-area {
+    display: flex; /* Align the input and button horizontally */
+    align-items: center; /* Vertically center the elements */
+    gap: 100px; /* Add some space between the elements */;
+    margin-top: 20px;
+    /* margin-bottom: 20px; */
+}
+
+.upload-area form {
+    display: flex;
+    align-items: center;
+}
+
+/* Upload Area Styles */
+.upload-area input[type="file"] {
+    padding: 10px;
+    margin-right: 10px; /* Add 30px margin to the right */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 350px;
+    background-color: #f0f0f0; /* Light gray background */
+    border: 1px solid #ccc; /* Light gray border */
+    color: #333; /* Dark gray text */
+    font-size: 1em; /* Adjust font size as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.upload-area button {
+    padding: 10px 20px;
+    /* background-color: #383d3a; */
+    /* color: #010c06; */
+    border: orange;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* Adjust font size as needed */;
+}
+
+.upload-area button:hover {
+    background-color: #e68014;
+    /* color: #fff; */
+}
+
+
+#upload-status {
+    margin-top: 0px;
+    color: #333;
+    font-weight: bold;
+}
+#upload-status {
+    margin-top: 0px;
+    color: #333;
+    font-weight: bold; /* Make the message stand out */
+    padding: 10px; /* Add padding to the status message */
+    border: 1px solid #ccc; /* Add a border to the status message */
+    border-radius: 5px; /* Add rounded corners to the status message */
+    background-color: #f0f0f0; /* Light gray background for the status message */
+}
+
+/* Chat Output Styles */
+.chat-output {
+    margin-top: 20px;
+}
+
+.chat-output h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#answer {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    word-wrap: break-word;
+}
+
+#answer-container {
+    max-height: 400px; /* Set the maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Add padding for better spacing */
+    border: 1px solid #ccc; /* Optional: Add a border for better distinction */
+    background-color: #f9f9f9; /* Optional: Add background color for readability */
+    word-wrap: break-word; /* Ensure long words or strings break into the next line */
+}
+
+#url {
+    display: block;
+    margin-top: 10px;
+    color: #007bff; /* Blue color for the URL */
+    text-decoration: none;
+} 
+
+#url:hover {
+    text-decoration: underline;
+}
+
+/* Index Page Styles */
+.knowledge-base-steps {
+    margin-top: 80px; /* Add margin to account for navbar height */
+}
+
+.knowledge-base-steps h2 {
+    margin-bottom: 10px;
+}
+
+#upload-form,
+#chunk-button,
+#embed-button {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc; /* Add light border to the upload form */
+    padding: 20px; /* Add padding to the upload form */
+    border-radius: 5px; /* Add rounded corners to the upload form */
+}
+
+#upload-form input[type="file"] {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#upload-form button {
+    padding: 10px 20px;
+    background-color: #e68014;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#upload-form button:hover {
+    background-color: #e68014;
+}
+
+#upload-message {
+    margin-top: 10px;
+    color: #333;
+}
+
+#chunk-button,
+#embed-button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc; /* Add light border to the buttons */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#chunk-button:hover,
+#embed-button:hover {
+    background-color: #ddd;
+}
+
+.knowledge-base-steps {
+    margin-top: 120px; /* Add margin to account for navbar height */
+    border-top: 1px solid #ccc; /* Add a top border */
+    padding-top: 20px; /* Add padding above the steps */
+}
+
+/* Chat Input Styles */
+.chat-input-chatbot {
+    margin-bottom: 20px; /* Add margin to the chat input area */
+    border: 1px solid #ccc; /* Add a border to the chat input area */
+    padding: 10px; /* Add padding to the chat input area */
+    border-radius: 5px; /* Add rounded corners to the chat input area */
+    background-color: #f0f0f0; /* Light gray background for the chat input area */
+    margin-top: 300px; /* Add space between chat-header and chat-input */
+}
+.chat-input-pdf-chatbot {
+    margin-bottom: 20px; /* Add margin to the chat input area */
+    border: 1px solid #ccc; /* Add a border to the chat input area */
+    padding: 10px; /* Add padding to the chat input area */
+    border-radius: 5px; /* Add rounded corners to the chat input area */
+    background-color: #f0f0f0; /* Light gray background for the chat input area */
+    margin-top: 20px; /* Add space between chat-header and chat-input */
+}
+
+.chat-input-chatbot form, .chat-input-pdf-chatbot form {
+    display: flex;
+    align-items: center;
+}
+
+.chat-input-chatbot input[type="text"], .chat-input-pdf-chatbot input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1; /* Allow the input to take up available space */
+    margin-right: 10px;
+    background-color: #fff; /* White background for the input */
+    color: #333; /* Dark gray text */
+    font-size: 1em; /* Adjust font size as needed */
+}
+
+.chat-input-chatbot button, .chat-input-pdf-chatbot button {
+    padding: 10px 20px;
+    background-color: #e68014; /* Green background */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em; /* Adjust font size as needed */
+}
+
+.chat-input-chatbot button:hover, .chat-input-pdf-chatbot button:hover {
+    background-color: #e68014; /* Darker green on hover */
+}
