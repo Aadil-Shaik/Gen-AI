@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transcription Bot - Chatnote</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqk1w27TLihaJzEqP4A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="/" class="logo">
+                    <img src="/static/images/logo.png" alt="Transcription Bot Logo">
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/transcribe">Transcription</a></li>
+                    <li><a href="/diarize">Diarization</a></li>
+                    <li><a href="/chatnote">Chat Note</a></li>  
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>🎤︎ Chat Note Bot 🤖</h1>
+        </div>
+        <div class="upload-area">
+            <form action="/generate_chatnote" method="post" enctype="multipart/form-data">
+                <h3>Upload Audio for Chat Note Generation</h3>
+                <input type="file" name="audio" accept=".mp3,.wav,.ogg" required>
+                <button type="submit">Generate Chat Note</button>
+            </form>
+            <div id="upload-status"></div>
+        </div>
+        <div class="chat-input-pdf-chatbot">
+            
+            <div class="chat-output">
+                <div id="answer-container">
+                    <h2>Answer:</h2>
+                    <div id="answer" style="
+                    max-height: auto; 
+                    border: 1px solid #ccc; 
+                    background-color: #f9f9f9;
+                    word-wrap: break-word; 
+                    font-family: Arial, sans-serif;
+                    font-size: 14px; 
+                    line-height: 1.5; 
+                    box-sizing: border-box; 
+                    margin: 0px; ">
+                        {% if chatnote %}
+                        <h2 style="margin: 10px;">Generated Chat Note:</h2>
+                        <div id="chatnote-raw" style="display: none;">{{ chatnote }}</div>
+                        <pre id="chatnote" style="white-space: pre-wrap;margin: 0px 10px 10px 10px;"></pre>
+                        {% endif %}
+                    </div>
+                </div>
+                <div id="url-container">
+                    <h2>Know More:</h2>
+                    <a id="url" href="/explore" target="_blank">URL</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Transcription Bot</p>
+            </div>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add the JavaScript at the end of the body -->
+    <script>
+        /**
+         * Function to replace Markdown-style bold (**text**) with HTML <strong> tags.
+         * @param {string} text - The raw text containing Markdown-style bold.
+         * @return {string} - The formatted text with HTML <strong> tags.
+         */
+        function formatMarkdownBold(text) {
+            return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        }
+
+        // Ensure the script runs after the DOM is fully loaded
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the raw chat note content from the hidden div
+            const chatnoteRaw = document.getElementById('chatnote-raw').innerText;
+        
+            // Format the raw chat note
+            const formattedChatnote = formatMarkdownBold(chatnoteRaw);
+        
+            // Insert the formatted content into the visible div
+            document.getElementById('chatnote').innerHTML = formattedChatnote;
+        });
+    </script>
+    <script src="/js/pdf_chatbot.js"></script>
+</body>
+</html>
