@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+openai-whisper
+pyannote.audio
+torch
+torchaudio
+numpy
+pydub
+gemini-ai
+ffmpeg
+requests
+python-dotenv
